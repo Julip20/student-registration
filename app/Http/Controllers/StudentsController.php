@@ -19,7 +19,7 @@ class StudentsController extends Controller
         $students = Student::latest()->paginate(5);
         // $users = DB::table('students')-paginate(5)->get();
 
-        return view('index',compact(['students']))
+        return view('index',['students' => $students])
             ->with(request()->input('page'));
     }
 
