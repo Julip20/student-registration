@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
+    <div class="container">
         <div class="col-lg-12">
             <div class="pull-left">
                 <h2>List of registered Students</h2>
@@ -10,9 +10,7 @@
                 <a class="btn btn-success" href="{{ route('students.create') }}"> Register Here</a>
             </div>
         </div>
-    </div>
-
-    @if ($message = Session::get('success'))
+        @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
@@ -39,6 +37,9 @@
 
     </table>
     {{ $students ->links() }}
+    </div>
+
+
 
 
 @endsection

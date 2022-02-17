@@ -2,16 +2,7 @@
 
 @section('content')
 
-<div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2>STUDENT REGISTRATION</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('students.index') }}"> Back</a>
-        </div>
-    </div>
-</div>
+
 
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -23,11 +14,25 @@
         </ul>
     </div>
 @endif
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
 
-<form action="{{ route('students.store') }}" method="POST">
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-primary" href="{{ route('students.index') }}"> Back</a>
+        </div>
+    </div>
+</div>
+
+
+
+<form class="needs-validation" action="{{ route('students.store') }}" method="POST" novalidate>
     @csrf
-
-     <div class="row">
+    <div class="col d-flex justify-content-center">
+    <div class="card" style="width:800px" >
+        <h2 class="card-header">STUDENT REGISTRATION</h2>
+     <div class="container">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Name:</strong>
@@ -48,10 +53,13 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                 <div class="text-right">
                 <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
+                 </div>
+            </div>
     </div>
-
+</div>
+</div>
 </form>
 
 @endsection
