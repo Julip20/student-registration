@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Student;
 
 class StudentsController extends Controller
 {
@@ -15,11 +15,10 @@ class StudentsController extends Controller
      */
     public function index()
     {
-
-        $students = Student::latest()->paginate(5);
+        $students = Student::latest()->paginate(5)->get();
         // $users = DB::table('students')-paginate(5)->get();
 
-        return view('index',['students' => $students])
+        return view('home',['students' => $students])
             ->with(request()->input('page'));
     }
 
@@ -30,7 +29,6 @@ class StudentsController extends Controller
      */
     public function create()
     {
-
         return view('students.create');
     }
 
@@ -42,6 +40,7 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => 'required',
             'olevel' => 'required',
