@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\StudentsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +29,6 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
+// Route::get('/index',[App\Http\Controllers\HomeController::class,'bag']);
